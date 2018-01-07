@@ -1,63 +1,96 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/bgv/assets/img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="76x76" href="/bgv/assets/img/apple-icon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beautygrapevine</title>
+    <meta name="description" content="Beauty tips and producs for a healthier lifestyle">
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <style>
+      html, body, div, span, a, p, ul, li, h1, code, nav {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-sizing: inherit;
+        font: inherit;
+        text-decoration: inherit;
+        text-align: inherit;
+        color: inherit;
+        background: transparent;
+      }
+      /*pass window height (w/o scroll bars) down to react app, note can't use vh becasue that
+      includes scroll bars and mobile browser footer, etc so doesn't give viewable area*/
+      html, body { height: 100%; }
+      html { background-color: rgb(0, 120, 0); }
+      #root { background-color: #F0F0F0; min-height: 100%; }
 
-    <!-- Bootstrap core CSS     -->
-	<link href="/bgv/assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/bgv/assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+      /*required for IE/Edge to be compatible with left:50vw & transform:translate(-50%, 0),
+      otherwise there is a phantom div on the right side of the screen (from the left:50vw),
+      that the window will scroll to. Note the left:50vw and transform is used to center content
+      horizaontally based on vw to prevent content jump when vertical scroll bar show/hide.*/
+      body { overflow-x: hidden; }
+    </style>
 
-	<!--  CSS for Demo Purpose, don't include it in your project     -->
-	<link href="/bgv/assets/css/demo.css" rel="stylesheet" />
+    <!-- start favicon -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+    <meta name="theme-color" content="#000000">
+    <!-- end favicon -->
 
-    <!--     Fonts and icons     -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/bgv/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function(l) {
+        if (l.search) {
+          var q = {};
+          l.search.slice(1).split('&').forEach(function(v) {
+            var a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
 
-    <script src="/bgv/assets/js/react/react.production.min.js"></script>
-    <script src="/bgv/assets/js/react/react-dom.production.min.js"></script>
-    <script src="/bgv/assets/js/react/babel.min.js"></script>
-</head>
-
-<body>
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="text/babel">
-
-        ReactDOM.render(
-            <h1>Hello, world!</h1>,
-            document.getElementById('root')
-        );
-    
-    </script>  
-
-    <!-- Core JS Files -->
-    <script src="/bgv/assets/js/jquery-3.2.1.js" type="text/javascript"></script>
-    <script src="/bgv/assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
-    <script src="/bgv/assets/js/popper.js" type="text/javascript"></script>
-    <script src="/bgv/assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-    <!-- Switches -->
-    <script src="/bgv/assets/js/bootstrap-switch.min.js"></script>
-
-    <!--  Plugins for Slider -->
-    <script src="/bgv/assets/js/nouislider.js"></script>
-
-    <!--  Plugins for DateTimePicker -->
-    <script src="/bgv/assets/js/moment.min.js"></script>
-    <script src="/bgv/assets/js/bootstrap-datetimepicker.min.js"></script>
-
-    <!--  Paper Kit Initialization and functons -->
-    <script src="/bgv/assets/js/paper-kit.js?v=2.1.0"></script>
-</body>
-
+    <!-- single page app in bundle.js -->
+    <script src="/build/bundle.js"></script>
+  </body>
 </html>
