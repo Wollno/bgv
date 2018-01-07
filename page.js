@@ -1,3 +1,6 @@
+var space_id = '5gsv58a7otxv';
+var access_token = 'c558d9ada52e505294f761fd446ee5beb4178bf38d9107d06d469aa655988cd9';
+
 var base = "/bgv/";
 
 function makesearchparts(s){
@@ -10,13 +13,18 @@ function makesearchparts(s){
     return searches;
 }
 
+var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/content_types?access_token=' + access_token;
+
+$.get(space_url).done(function(data){
+    console.log(data);
+}).fail(function(e){
+    console.log("error");
+    console.log(e);
+});
+
 var pathparts = window.location.pathname.substring(base.length).split("/");
 var searchparts = makesearchparts(window.location.search);
 var fragment = window.location.hash.substring(1);
-
-console.log(pathparts);
-console.log(searchparts);
-console.log(fragment);
 
 ReactDOM.render(
     <h1>We're at: {pathparts}</h1>,
