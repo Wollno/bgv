@@ -1,6 +1,6 @@
-var base = escape("https://wollno.github.io/bgv/");
+var base = "/bgv/";
 
-var a = escape(window.location).substring(base.length);
+var pathparts = window.location.pathname.substring(base.length).split("/");
 
 ReactDOM.render(
     <h1>We're at: {a}</h1>,
