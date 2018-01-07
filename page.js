@@ -13,7 +13,9 @@ function makesearchparts(s){
     return searches;
 }
 
-var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/content_types?access_token=' + access_token;
+var special_urls = [];
+
+var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/entries?access_token=' + access_token;
 
 $.get(space_url).done(function(data){
     console.log(data);
