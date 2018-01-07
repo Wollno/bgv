@@ -17,7 +17,7 @@ var special_urls = {};
 special_urls["fit"] = ['collections', 'fit'];
 special_urls[""] = ['collections', 'index'];
 
-var query = '&fields.urlStub=fit'
+var query = '&content_type=productList&fields.urlStub=fit'
 
 var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/content_types?access_token=' + access_token + query;
 
