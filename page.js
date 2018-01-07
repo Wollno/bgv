@@ -13,9 +13,13 @@ function makesearchparts(s){
     return searches;
 }
 
-var special_urls = [];
+var special_urls = {};
+special_urls["fit"] = ['collections', 'fit'];
+special_urls[""] = ['collections', 'index'];
 
-var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/entries?access_token=' + access_token;
+var query = '&fields.urlStub=fit'
+
+var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/content_types?access_token=' + access_token + query;
 
 $.get(space_url).done(function(data){
     console.log(data);
@@ -27,6 +31,8 @@ $.get(space_url).done(function(data){
 var pathparts = window.location.pathname.substring(base.length).split("/");
 var searchparts = makesearchparts(window.location.search);
 var fragment = window.location.hash.substring(1);
+
+console.log(pathparts);
 
 ReactDOM.render(
     <h1>We're at: {pathparts}</h1>,
