@@ -19,6 +19,20 @@ function make_products(products, includes){
     return res;
 }
 
+function render_body(body){
+    if(body){
+        ReactDOM.render(
+            body,
+            document.getElementById('root')
+        );
+    } else {
+        ReactDOM.render(
+            <h1>somerror</h1>,
+            document.getElementById('root')
+        );
+    }
+}
+
 function make_collection(urlStub){
     var query = '&content_type=productList&fields.urlStub=' + urlStub;
     var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/entries?access_token=' + access_token + query;
@@ -42,7 +56,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text(title);
 
-            return (<div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
+            render_body(<div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
@@ -70,12 +84,10 @@ function make_collection(urlStub){
                     </div>);
         } catch (e) {
             console.log(e);
-            return false;
+            render_body(false);
         }
     }).fail(function(e){
         console.log("error");
         console.log(e);
     });
-
-    return false;
 }

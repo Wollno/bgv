@@ -27,22 +27,9 @@ for(var url in special_urls){
 
 console.log(pathparts);
 
-var body;
-
 if(pathparts[0] == "collections"){
-    body = make_collection(pathparts[1]);
+    make_collection(pathparts[1]);
 }
 
-console.log("body: ");
-console.log(body);
-if(body){
-    ReactDOM.render(
-        body,
-        document.getElementById('root')
-    );
-} else {
-    ReactDOM.render(
-        <h1>somerror</h1>,
-        document.getElementById('root')
-    );
-}
+
+
