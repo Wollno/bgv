@@ -21,7 +21,9 @@ var fragment = window.location.hash.substring(1);
 console.log(pathparts);
 
 for(var url in special_urls){
-    if(url == pathparts) pathparts = special_urls[url];
+    var url_arr = url.split("/");
+    console.log(url_arr);
+    if(url_arr == pathparts) pathparts = special_urls[url];
 }
 
 console.log(pathparts);
