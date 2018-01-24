@@ -4,7 +4,7 @@ var access_token = 'c558d9ada52e505294f761fd446ee5beb4178bf38d9107d06d469aa65598
 var contentful_base = 'https://cdn.contentful.com/spaces/';
 
 function make_image_url(asset_id, assets){
-    for(let i = 0; i < assets.length){
+    for(let i = 0; i < assets.length; i++){
         if(assets[i].sys.id == asset_id) return assets[i].file.url; 
     }
 }
