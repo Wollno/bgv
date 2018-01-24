@@ -5,7 +5,7 @@ var contentful_base = 'https://cdn.contentful.com/spaces/';
 
 function make_image_url(asset_id, assets){
     for(let i = 0; i < assets.length; i++){
-        if(assets[i].sys.id == asset_id) return assets[i].file.url; 
+        if(assets[i].sys.id == asset_id) return assets[i].fields.file.url; 
     }
 }
 
@@ -46,9 +46,7 @@ function make_collection(urlStub){
         try {
             var parsed = typeof data == "object" ? data : JSON.parse(data);
             var includes = parsed.includes;
-            console.log(includes);
             var assets = includes.Asset;
-            console.log(assets);
             var entry = parsed.items[0];
             var title = entry.fields.name;
             var header_img = entry.fields.headerImage.sys.id;
