@@ -18,11 +18,12 @@ function make_collection(urlStub){
         try {
             var entry = JSON.parse(data)["items"][0];
             var title = entry.name;
+            var header_img = entry.headerImage;
             $("title").text(title);
 
             return class bgvcollection extends RTCIceCandidate.Component {
                 render() {
-                    <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+                    <div class="page-header section-dark" style={`background-image: url('${make_image_url(header_img)}')`}>
                         <div class="filter"></div>
                         <div class="content-center">
                             <div class="container">
