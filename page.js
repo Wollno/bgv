@@ -22,8 +22,7 @@ console.log(pathparts);
 
 for(var url in special_urls){
     var url_arr = url.split("/");
-    console.log(url_arr);
-    if(url_arr == pathparts) pathparts = special_urls[url];
+    if(JSON.stringify(url_arr) == JSON.stringify(pathparts)) pathparts = special_urls[url];
 }
 
 console.log(pathparts);
