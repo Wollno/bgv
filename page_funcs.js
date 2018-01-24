@@ -67,7 +67,7 @@ function make_collection(urlStub){
                                 <img src={"assets/img/creative-tim-white-slim2.png"} class={"creative-tim-logo"} />
                             </a>
                         </h6>
-                    </div>)
+                    </div>);
         } catch (e) {
             console.log(e);
             return false;

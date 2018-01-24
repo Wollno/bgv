@@ -32,6 +32,8 @@ if(pathparts[0] == "collections"){
     body = make_collection(pathparts[1]);
 }
 
+console.log("body: ");
+console.log(body);
 if(body){
     ReactDOM.render(
         body,
