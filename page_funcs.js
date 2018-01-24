@@ -23,7 +23,7 @@ function make_collection(urlStub){
     $.get(space_url).done(function(data){
         console.log(data);
         try {
-            var parsed = JSON.parse(data);
+            var parsed = typeof data == "object" ? data : JSON.parse(data);
             var entry = parsed.items[0];
             var title = entry.name;
             var header_img = entry.headerImage.sys.id;
