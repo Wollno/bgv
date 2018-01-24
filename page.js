@@ -34,7 +34,16 @@ var fragment = window.location.hash.substring(1);
 
 console.log(pathparts);
 
+
 ReactDOM.render(
-    <h1>We're at: {pathparts}</h1>,
-    document.getElementById('root')
+    <h1>We're at 1: {pathparts}</h1>,
+    document.getElementById('body')
+);
+ReactDOM.render(
+    <h1>We're at 2: {pathparts}</h1>,
+    document.getElementById('body')
+);
+ReactDOM.render(
+    <h1>We're at 3: {pathparts}</h1>,
+    document.getElementById('body')
 );
