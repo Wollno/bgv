@@ -7,11 +7,16 @@ function make_image_url(asset_id){
     return contentful_base + space_id + '/assets/' + asset_id + '?access_token=' + access_token;
 }
 
-function make_products(products){
+function make_products(products, includes){
     var res = [];
     for(let i = 0; i < products.length; i++){
-
+        for(let j = 0; j < includes[products[i].sys.linkType].length; j++){
+            if(includes[products[i].sys.linkType][j].sys.id == products[i].sys.id){
+                res.push(includes[products[i].sys.linkType][j]);
+            }
+        }
     }
+    return res;
 }
 
 function make_collection(urlStub){
@@ -24,6 +29,7 @@ function make_collection(urlStub){
         console.log(data);
         try {
             var parsed = typeof data == "object" ? data : JSON.parse(data);
+            var includes = parsed.includes;
             var entry = parsed.items[0];
             var title = entry.fields.name;
             var header_img = entry.fields.headerImage.sys.id;
@@ -32,8 +38,8 @@ function make_collection(urlStub){
             var shoplink = entry.fields.shopLink;
             var footer = entry.fields.footer;
 
-            var products = make_products(entry.products);
-
+            var products = make_products(entry.fields.products, includes);
+            console.log(products);
             $("title").text(title);
 
             return class bgvcollection extends RTCIceCandidate.Component {
