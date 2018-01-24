@@ -42,9 +42,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text(title);
 
-            return class bgvcollection extends RTCIceCandidate.Component {
-                render() {
-                    <div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
+            return (<div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
@@ -69,8 +67,7 @@ function make_collection(urlStub){
                                 <img src={"assets/img/creative-tim-white-slim2.png"} class={"creative-tim-logo"} />
                             </a>
                         </h6>
-                    </div>
-                }
+                    </div>)
             }
         } catch (e) {
             console.log(e);
