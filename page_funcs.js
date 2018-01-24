@@ -23,7 +23,8 @@ function make_collection(urlStub){
     $.get(space_url).done(function(data){
         console.log(data);
         try {
-            var entry = JSON.parse(data)["items"][0];
+            var parsed = JSON.parse(data);
+            var entry = parsed.items[0];
             var title = entry.name;
             var header_img = entry.headerImage.sys.id;
             var cat_img = entry.categoryImage.sys.id;
@@ -59,7 +60,7 @@ function make_collection(urlStub){
                         </div>
                         <h6 class={"category category-absolute"}>Designed and coded by
                             <a href={"https://www.creative-tim.com"} target={"_blank"}>
-                                <img src={"assets/img/creative-tim-white-slim2.png"} class={"creative-tim-logo"}/ >
+                                <img src={"assets/img/creative-tim-white-slim2.png"} class={"creative-tim-logo"} />
                             </a>
                         </h6>
                     </div>
