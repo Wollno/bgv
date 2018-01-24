@@ -59,7 +59,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text(title);
 
-            const body = (<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img) + "')"}}>
+            const body = (<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
