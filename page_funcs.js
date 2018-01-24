@@ -3,8 +3,10 @@ var access_token = 'c558d9ada52e505294f761fd446ee5beb4178bf38d9107d06d469aa65598
 
 var contentful_base = 'https://cdn.contentful.com/spaces/';
 
-function make_image_url(asset_id){
-    return contentful_base + space_id + '/assets/' + asset_id + '?access_token=' + access_token;
+function make_image_url(asset_id, assets){
+    for(let i = 0; i < assets.length){
+        if(assets[i].sys.id == asset_id) return assets[i].file.url; 
+    }
 }
 
 function make_products(products, includes){
@@ -44,6 +46,7 @@ function make_collection(urlStub){
         try {
             var parsed = typeof data == "object" ? data : JSON.parse(data);
             var includes = parsed.includes;
+            var assets = parsed.includes.Asset;
             var entry = parsed.items[0];
             var title = entry.fields.name;
             var header_img = entry.fields.headerImage.sys.id;
