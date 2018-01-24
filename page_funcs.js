@@ -11,10 +11,14 @@ function make_collection(urlStub){
     var query = '&content_type=productList&fields.urlStub=' + urlStub;
     var space_url = 'https://cdn.contentful.com/spaces/' + space_id + '/entries?access_token=' + access_token + query;
 
+    console.log(space_url);
+
     $.get(space_url).done(function(data){
         console.log(data);
     }).fail(function(e){
         console.log("error");
         console.log(e);
     });
+
+    return false;
 }

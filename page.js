@@ -24,11 +24,22 @@ for(var url in special_urls){
     if(url == pathparts) pathparts = special_urls[url];
 }
 
+console.log(pathparts);
+
+var body;
+
 if(pathparts[0] == "collections"){
     body = make_collection(pathparts[1]);
 }
 
-ReactDOM.render(
-    body,
-    document.getElementById('root')
-);
+if(body){
+    ReactDOM.render(
+        body,
+        document.getElementById('root')
+    );
+} else {
+    ReactDOM.render(
+        <h1>somerror</h1>,
+        document.getElementById('root')
+    );
+}
