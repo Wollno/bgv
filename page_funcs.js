@@ -56,7 +56,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text(title);
 
-            render_body(<div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
+            const body = (<div class={'page-header section-dark'} style={`background-image: url('${make_image_url(header_img)}')`}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
@@ -82,6 +82,7 @@ function make_collection(urlStub){
                             </a>
                         </h6>
                     </div>);
+            render_body(body);
         } catch (e) {
             console.log(e);
             render_body(false);
