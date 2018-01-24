@@ -68,7 +68,6 @@ function make_collection(urlStub){
                             </a>
                         </h6>
                     </div>)
-            }
         } catch (e) {
             console.log(e);
             return false;
