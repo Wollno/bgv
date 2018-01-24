@@ -46,7 +46,9 @@ function make_collection(urlStub){
         try {
             var parsed = typeof data == "object" ? data : JSON.parse(data);
             var includes = parsed.includes;
-            var assets = parsed.includes.Asset;
+            console.log(includes);
+            var assets = includes.Asset;
+            console.log(assets);
             var entry = parsed.items[0];
             var title = entry.fields.name;
             var header_img = entry.fields.headerImage.sys.id;
