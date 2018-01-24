@@ -25,12 +25,12 @@ function make_collection(urlStub){
         try {
             var parsed = typeof data == "object" ? data : JSON.parse(data);
             var entry = parsed.items[0];
-            var title = entry.name;
-            var header_img = entry.headerImage.sys.id;
-            var cat_img = entry.categoryImage.sys.id;
-            var desc = entry.description;
-            var shoplink = entry.shopLink;
-            var footer = entry.footer;
+            var title = entry.fields.name;
+            var header_img = entry.fields.headerImage.sys.id;
+            var cat_img = entry.fields.categoryImage.sys.id;
+            var desc = entry.fields.description;
+            var shoplink = entry.fields.shopLink;
+            var footer = entry.fields.footer;
 
             var products = make_products(entry.products);
 
