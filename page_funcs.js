@@ -57,7 +57,7 @@ function make_collection(urlStub){
 
             var products = make_products(entry.fields.products, includes);
             console.log(products);
-            $("title").text(title);
+            $("title").text($("title").text() + " - " + title);
 
             const body = (<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
                         <div class={'filter'}></div>
