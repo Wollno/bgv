@@ -65,15 +65,9 @@ function make_collection(urlStub){
                             <div class={"container"}>
                                 <div class={"title-brand"}>
                                     <h1 class={"presentation-title"}>{title}</h1>
-                                    <div class={"fog-low"}>
-                                        <img src={"assets/img/fog-low.png"} alt={""} />
-                                    </div>
-                                    <div class={"fog-low right"}>
-                                        <img src={"assets/img/fog-low.png"} alt={""} />
-                                    </div>
                                 </div>
 
-                                <h2 class={"presentation-subtitle text-center"}>Make your mark with a Free Bootstrap 4 UI Kit! </h2>
+                                <h2 class={"presentation-subtitle text-center"}>Subtext under title! </h2>
                             </div>
                         </div>
 					</div>);
