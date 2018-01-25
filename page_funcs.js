@@ -59,7 +59,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text(title);
 
-            const body = [(<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
+            const body = (<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
@@ -76,16 +76,7 @@ function make_collection(urlStub){
                                 <h2 class={"presentation-subtitle text-center"}>Make your mark with a Free Bootstrap 4 UI Kit! </h2>
                             </div>
                         </div>
-                        <div class={"moving-clouds"} style={{backgroundImage: "url('assets/img/clouds.png')"}}>
-                        </div>
-                        <h6 class={"category category-absolute"}>Designed and coded by
-                            <a href={"https://www.creative-tim.com"} target={"_blank"}>
-                                <img src={"assets/img/creative-tim-white-slim2.png"} class={"creative-tim-logo"} />
-                            </a>
-                        </h6>
-					</div>),(
-					<div style={{height: '1000px', backgroundColor: '#aaaaaa'}}>
-					</div>)];
+					</div>);
             render_body(body);
         } catch (e) {
             console.log(e);
