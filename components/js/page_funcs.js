@@ -59,7 +59,7 @@ function make_collection(urlStub){
             console.log(products);
             $("title").text($("title").text() + " - " + title);
 
-            const body = (<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
+            const body = [(<div class={'page-header section-dark'} style={{backgroundImage: "url('" + make_image_url(header_img, assets) + "')"}}>
                         <div class={'filter'}></div>
                         <div class={"content-center"}>
                             <div class={"container"}>
@@ -70,7 +70,9 @@ function make_collection(urlStub){
                                 <h2 class={"presentation-subtitle text-center"}>Subtext under title! </h2>
                             </div>
                         </div>
-					</div>);
+                    </div>),
+                    (<div style={{height: '500px'}}>
+                    </div>)];
             render_body(body);
         } catch (e) {
             console.log(e);
